@@ -1,0 +1,25 @@
+﻿<Window x:Class="licenta.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:licenta"
+        mc:Ignorable="d"
+        Title="Window4" Height="450" Width="841.063" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:test x:Key="test"/>
+        <CollectionViewSource x:Key="pontaj_managementViewSource" Source="{Binding Pontaj_management, Source={StaticResource test}}"/>
+    </Window.Resources>
+    <Grid Margin="0,0,22,0" DataContext="{StaticResource pontaj_managementViewSource}">
+        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="23" Margin="96,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="115,162,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <PasswordBox x:Name="textbox2" HorizontalAlignment="Left" Margin="96,99,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+        <DataGrid x:Name="dataGridView1" ItemsSource="{Binding}" Height="211" Margin="296,26,47,0" VerticalAlignment="Top"/>
+        <Label Content="Cereri" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="datagrid2" HorizontalAlignment="Left" Height="117" Margin="10,279,0,0" VerticalAlignment="Top" Width="180"/>
+        <DataGrid HorizontalAlignment="Left" Height="117" Margin="296,279,0,0" VerticalAlignment="Top" Width="468" ItemsSource="{Binding}"/>
+
+    </Grid>
+</Window>

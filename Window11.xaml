@@ -1,0 +1,29 @@
+﻿<Window x:Class="licenta.Window11"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:licenta"
+        mc:Ignorable="d"
+        Title="Window11" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:test x:Key="test"/>
+        <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource angajatViewSource}">
+        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="29,28,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
+        <Label Content="Functia :" HorizontalAlignment="Left" Margin="29,59,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
+        <Label Content="Data invoire :" HorizontalAlignment="Left" Margin="29,90,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
+        <Label Content="Incepand cu ora :" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
+        <Label Content="Data :" HorizontalAlignment="Left" Margin="29,152,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
+        <Label Content="pana la ora :" HorizontalAlignment="Left" Margin="167,121,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
+        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="148,28,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id"/>
+        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="105,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="zileliberebox" HorizontalAlignment="Left" Height="23" Margin="123,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="perioada1box" HorizontalAlignment="Left" Height="23" Margin="129,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33"/>
+        <TextBox x:Name="perioada2box" HorizontalAlignment="Left" Height="23" Margin="243,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+        <TextBox x:Name="databox" HorizontalAlignment="Left" Height="23" Margin="81,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43"/>
+        <Button Content="Generare" HorizontalAlignment="Left" Margin="243,177,0,0" VerticalAlignment="Top" Width="102" Height="56" Click="Button_Click"/>
+
+    </Grid>
+</Window>

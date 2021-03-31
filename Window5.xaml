@@ -1,0 +1,30 @@
+﻿<Window x:Class="licenta.Window5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:licenta"
+        mc:Ignorable="d"
+        Title="Window5" Height="286.5" Width="524" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:test x:Key="test"/>
+        <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
+        <CollectionViewSource x:Key="comandaViewSource" Source="{Binding Comanda, Source={StaticResource test}}"/>
+        <CollectionViewSource x:Key="proiectViewSource" Source="{Binding Proiect, Source={StaticResource test}}"/>
+    </Window.Resources>
+    <Grid Margin="0,0,2,0" DataContext="{StaticResource angajatViewSource}" Height="186" VerticalAlignment="Top">
+        <Label Content="Nume prenume" HorizontalAlignment="Left" Margin="28,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Comanda" HorizontalAlignment="Left" Margin="160,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Proiect" HorizontalAlignment="Left" Margin="160,95,0,0" VerticalAlignment="Top"/>
+        <Label Content="Data(dd.MM.yyyy)" HorizontalAlignment="Left" Margin="276,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Timp lucrat (1.5)" HorizontalAlignment="Left" Margin="410,35,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textboxdata" HorizontalAlignment="Left" Height="23" Margin="276,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textboxore" HorizontalAlignment="Left" Height="23" Margin="435,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
+        <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="28,66,0,0" VerticalAlignment="Top" Width="93" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="160,66,0,0" VerticalAlignment="Top" Width="76" DisplayMemberPath="nume_comanda" ItemsSource="{Binding Source={StaticResource comandaViewSource}}" SelectedValuePath="Id"/>
+        <ComboBox x:Name="comboBox3" HorizontalAlignment="Left" Margin="160,126,0,0" VerticalAlignment="Top" Width="76" DisplayMemberPath="nume_proiect" ItemsSource="{Binding Source={StaticResource proiectViewSource}}" SelectedValuePath="Id"/>
+        <Button Content="Adaugare" HorizontalAlignment="Left" Margin="413,126,0,0" VerticalAlignment="Top" Width="93" Height="41" Click="Button_Click"/>
+        <DataGrid x:Name="dataGridView1" HorizontalAlignment="Left" Height="74" Margin="15,166,0,-54" VerticalAlignment="Top" Width="398"/>
+
+    </Grid>
+</Window>
