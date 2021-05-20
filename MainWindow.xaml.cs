@@ -14,6 +14,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text.RegularExpressions;
+using System.Globalization;
+using Microsoft.Office;
+using office = Microsoft.Office.Interop.Word;
+using System.Diagnostics;
+
 
 
 namespace licenta
@@ -43,7 +49,7 @@ namespace licenta
             System.Windows.Data.CollectionViewSource angajatViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("angajatViewSource")));
             angajatViewSource.View.MoveCurrentToFirst();
             combobox1.SelectedIndex = -1;
-
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -62,16 +68,16 @@ namespace licenta
             conn.Open();
             
 
-            if (textboxdata.Text == "" && textboxore.Text == "" && combobox1.Text == "")
+            if (datepicker.Text == "" && textboxore.Text == "" && combobox1.Text == "")
             {
                 MessageBox.Show(" Inserati datele ");
                 return;
             }
-            else if (textboxdata.Text.Length <= 9 | textboxdata.Text.Length > 10)
-            {
-                MessageBox.Show("Inserati data ex. 08.09.2021");
-                return;
-            }
+           // else if (datepicker.Text.Length <= 9 | datepicker.Text.Length > 10)
+            //{
+           //     MessageBox.Show("Inserati data ex. 08.09.2021");
+           //     return;
+          //  }
             else
             {
 
@@ -89,12 +95,12 @@ namespace licenta
 
                 else
                 {
-
-                    DateTime d;
-                    d = DateTime.Parse(textboxdata.Text);
+                    string dates = Convert.ToDateTime(datepicker.Text).ToString("MM.dd.yyyy");
+                    //DateTime d;
+                    //d = DateTime.Parse(textboxdata.Text);
                     var cmd = new SqlCommand("INSERT INTO Pontaj (nr_angajat, data, ora, data_creare, tip) VALUES(@nr_angajat, @data, @ora, @data_creare, @tip);", conn);
                     cmd.Parameters.AddWithValue("@nr_angajat", this.combobox1.SelectedValue);
-                    cmd.Parameters.Add("@data", d);
+                    cmd.Parameters.Add("@data", dates);
                     cmd.Parameters.Add("@ora", textboxore.Text);
                     cmd.Parameters.AddWithValue("@data_creare", DateTime.Now);
                     cmd.Parameters.AddWithValue("@tip", this.combobox2.Text);
@@ -113,16 +119,16 @@ namespace licenta
             var conn1 = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=licenta;Persist Security Info=True;User ID=artur;password=artur");
             conn1.Open();
 
-            if (textboxdata.Text == "" && textboxore.Text == "" && combobox1.Text == "")
+            if (datepicker.Text == "" && textboxore.Text == "" && combobox1.Text == "")
             {
                 MessageBox.Show(" Inserati datele ");
                 return;
             }
-            else if (textboxdata.Text.Length <= 9 | textboxdata.Text.Length > 10)
-            {
-                MessageBox.Show("Inserati data ex. 08.09.2021");
-                return;
-            }
+            //else if (textboxdata.Text.Length <= 9 | textboxdata.Text.Length > 10)
+            //{
+              //  MessageBox.Show("Inserati data ex. 08.09.2021");
+                //return;
+            //}
             else
             {
 
@@ -140,21 +146,20 @@ namespace licenta
 
                 else
                 {
-                    DateTime d;
-                    d = DateTime.Parse(textboxdata.Text);
+                    string datess = Convert.ToDateTime(datepicker.Text).ToString("MM.dd.yyyy");
+                  
                     SqlCommand exista = new SqlCommand("SELECT COUNT(*) FROM [Pontaj] WHERE [nr_angajat] = @nr_angajat AND [data]=@data", conn1);
                     exista.Parameters.AddWithValue("@nr_angajat", this.combobox1.SelectedValue);
-                    exista.Parameters.Add("@data", d);
+                    exista.Parameters.Add("@data", datess);
                     int UserExist = (int)exista.ExecuteScalar();
 
                     if (UserExist > 0)
                     {
-
-                        //DateTime d;
-                        // d = DateTime.Parse(textboxdata.Text);
+                        string datesss = Convert.ToDateTime(datepicker.Text).ToString("MM.dd.yyyy");
+                        
                         var cmd = new SqlCommand("UPDATE Pontaj SET ora_iesire = @ora_iesire, data_creare_iesire=@data_creare_iesire WHERE data = @data AND nr_angajat =@nr_angajat; ", conn1);
                         cmd.Parameters.AddWithValue("@nr_angajat", this.combobox1.SelectedValue);
-                        cmd.Parameters.Add("@data", d);
+                        cmd.Parameters.Add("@data", datesss);
                         cmd.Parameters.Add("@ora_iesire", textboxore.Text);
                         cmd.Parameters.AddWithValue("@data_creare_iesire", DateTime.Now);
                         cmd.Parameters.AddWithValue("@tip", this.combobox2.Text);
@@ -202,6 +207,18 @@ namespace licenta
             Window6 mw = new Window6();
             mw.Show();
             //this.Close();
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            Window14 mw = new Window14();
+            mw.Show();
+            //this.Close();
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            Process.Start(@"C:\Users\Artur\Desktop\licenta\program\help.pdf");
         }
     }
 }

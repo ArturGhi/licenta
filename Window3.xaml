@@ -5,8 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
         mc:Ignorable="d"
-        Title="Window3" Height="450" Width="800">
-    <Grid>
-        
+        Title="Manager" Height="772" Width="1380"  Loaded="Window_Loaded" IsTabStop="True" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowState="Maximized" Background="#FFE2DEDE">
+
+    <Window.Resources>
+        <local:test x:Key="test"/>
+        <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
+        <CollectionViewSource x:Key="departamentViewSource" Source="{Binding Departament, Source={StaticResource test}}"/>
+        <local:licentaDataSet x:Key="licentaDataSet"/>
+        <CollectionViewSource x:Key="departamentViewSource1" Source="{Binding Departament, Source={StaticResource licentaDataSet}}"/>
+        <CollectionViewSource x:Key="pontajViewSource" Source="{Binding Pontaj, Source={StaticResource licentaDataSet}}"/>
+        <CollectionViewSource x:Key="pontaj_managementViewSource" Source="{Binding Pontaj_management, Source={StaticResource licentaDataSet}}"/>
+        <CollectionViewSource x:Key="comandaViewSource" Source="{Binding Comanda, Source={StaticResource test}}"/>
+        <CollectionViewSource x:Key="proiectViewSource" Source="{Binding Proiect, Source={StaticResource test}}"/>
+        <CollectionViewSource x:Key="cerereViewSource" Source="{Binding Cerere, Source={StaticResource test}}"/>
+        <CollectionViewSource x:Key="userViewSource" Source="{Binding User, Source={StaticResource test}}"/>
+        <CollectionViewSource x:Key="sugestieViewSource" Source="{Binding Sugestie, Source={StaticResource licentaDataSet}}"/>
+    </Window.Resources>
+    <Grid Margin="0,0,2,-1" DataContext="{StaticResource angajatViewSource}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="96*"/>
+            <ColumnDefinition Width="1165*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="datagrid1" HorizontalAlignment="Left" Height="187" Margin="8,23,0,0" VerticalAlignment="Top" Width="402" ItemsSource="{Binding}" Grid.ColumnSpan="4" Grid.Column="1"/>
+        <Label Content="Nume" HorizontalAlignment="Left" Margin="250,22,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="43"/>
+        <Label Content="Departament" HorizontalAlignment="Left" Margin="230,67,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="84"/>
+        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="22" Margin="225,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Grid.Column="4" FontFamily="Calibri" FontSize="14"/>
+        <Button Content="Adaugare" HorizontalAlignment="Left" Margin="230,158,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_3" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="25" Padding="10,4"/>
+        <Button Content="Actualizare" HorizontalAlignment="Left" Margin="230,188,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_5" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="25" BorderBrush="#FF40B933" Background="#FF40B933" Padding="5,3"/>
+        <TextBox x:Name="textboxtelefon" HorizontalAlignment="Left" Height="23" Margin="225,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Grid.Column="4" FontFamily="Calibri" FontSize="14"/>
+        <Label Content="Telefon" HorizontalAlignment="Left" Margin="245,112,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="49"/>
+        <ComboBox x:Name="combobox" HorizontalAlignment="Left" Margin="225,87,0,0" VerticalAlignment="Top" Width="90" DisplayMemberPath="nume_departament" ItemsSource="{Binding Source={StaticResource departamentViewSource1}}" SelectedValuePath="Id" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="26"/>
+        <DataGrid x:Name="datagird" HorizontalAlignment="Left" Height="210" Margin="8,244,0,0" VerticalAlignment="Top" Width="734" ItemsSource="{Binding Source={StaticResource pontajViewSource}}" Grid.ColumnSpan="4" Grid.Column="1"/>
+        <Button Content="Actualizare" HorizontalAlignment="Left" Margin="457,459,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="25" BorderBrush="#FF40B933" Background="#FF40B933" Padding="5,3"/>
+        <DataGrid x:Name="datagridpon" HorizontalAlignment="Left" Height="210" Margin="8,493,0,0" VerticalAlignment="Top" Width="734" ItemsSource="{Binding Source={StaticResource pontaj_managementViewSource}}" Grid.ColumnSpan="4" Grid.Column="1"/>
+        <Button Content="Actualizare" HorizontalAlignment="Left" Margin="457,709,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_1" Grid.Column="4" Padding="5,3" Height="25" FontFamily="Calibri" FontWeight="Bold" Background="#FF40B933" BorderBrush="#FF40B933"/>
+        <DataGrid x:Name="data" HorizontalAlignment="Left" Height="186" Margin="337,28,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{Binding Source={StaticResource departamentViewSource1}}" Grid.Column="4"/>
+        <Label Content="Departament" HorizontalAlignment="Left" Margin="561,28,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="84"/>
+        <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="24" Margin="554,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Grid.Column="4" FontFamily="Calibri" FontSize="14"/>
+        <Button Content="Adaugare" HorizontalAlignment="Left" Margin="566,77,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_2" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="25" Padding="10,4"/>
+        <Button Content="Actualizare" HorizontalAlignment="Left" Margin="566,106,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_4" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="25" BorderBrush="#FF40B933" Background="#FF40B933" Padding="5,3"/>
+        <DataGrid x:Name="datagrid4" HorizontalAlignment="Left" Height="220" Margin="548,484,0,0" VerticalAlignment="Top" Width="235" ItemsSource="{Binding Source={StaticResource comandaViewSource}}" Grid.Column="4"/>
+        <Label Content="Nume" HorizontalAlignment="Left" Margin="822,487,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="43"/>
+        <Label Content="Numar" HorizontalAlignment="Left" Margin="818,528,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="47"/>
+        <TextBox x:Name="textboxcomanda1" HorizontalAlignment="Left" Height="24" Margin="800,504,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Column="4" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="textboxcomanda2" HorizontalAlignment="Left" Height="22" Margin="800,545,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Column="4" FontFamily="Calibri" FontSize="14"/>
+        <Button Content="Adaugare" HorizontalAlignment="Left" Margin="806,581,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_6" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="26" Padding="10,4"/>
+        <Button Content="Actualizare" HorizontalAlignment="Left" Margin="806,611,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_7" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="24" BorderBrush="#FF40B933" Background="#FF40B933" Padding="5,3"/>
+        <DataGrid x:Name="datagrid5" HorizontalAlignment="Left" Height="200" Margin="554,247,0,0" VerticalAlignment="Top" Width="229" ItemsSource="{Binding Source={StaticResource proiectViewSource}}" Grid.Column="4"/>
+        <Label Content="Nume" HorizontalAlignment="Left" Margin="818,246,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="43"/>
+        <Label Content="Numar" HorizontalAlignment="Left" Margin="816,281,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" Height="25" Width="47"/>
+        <TextBox x:Name="textboxproiect1" HorizontalAlignment="Left" Height="22" Margin="798,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Grid.Column="4" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="textboxproiect2" HorizontalAlignment="Left" Height="24" Margin="798,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Grid.Column="4" FontFamily="Calibri" FontSize="14"/>
+        <Button Content="Adaugare" HorizontalAlignment="Left" Margin="804,331,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_8" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="24" Padding="10,4"/>
+        <Button Content="Actualizare" HorizontalAlignment="Left" Margin="804,359,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_9" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="26" BorderBrush="#FF40B933" Background="#FF40B933" Padding="5,3"/>
+        <DataGrid x:Name="datagrid7" HorizontalAlignment="Left" Height="186" Margin="693,30,0,0" VerticalAlignment="Top" Width="455" ItemsSource="{Binding Source={StaticResource cerereViewSource}}" Grid.Column="4"/>
+        <Button Content="Actualizare" HorizontalAlignment="Left" Margin="1068,221,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_10" Grid.Column="4" FontFamily="Calibri" FontWeight="Bold" Height="24" BorderBrush="#FF40B933" Background="#FF40B933" Padding="5,3"/>
+        <Button Content="Rapoarte" Grid.Column="4" HorizontalAlignment="Left" Margin="1062,682,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_13" Height="52" Background="#FFECE337" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="22" Padding="5,4" FontWeight="Bold" Foreground="#DDF10101"/>
+        <Label Content="Angajat" Grid.Column="1" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="53"/>
+        <Label Content="Departament" Grid.Column="4" HorizontalAlignment="Left" Margin="337,0,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="86"/>
+        <Label Content="Cerere" Grid.Column="4" HorizontalAlignment="Left" Margin="693,0,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="46"/>
+        <Label Content="Proiect" Grid.Column="4" HorizontalAlignment="Left" Margin="554,222,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="63"/>
+        <Label Content="Comanda" Grid.Column="4" HorizontalAlignment="Left" Margin="554,459,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="63"/>
+        <Label Content="Pontaj" Grid.Column="1" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="45"/>
+        <Label Content="Pontaj comanda/proiect" Grid.Column="1" HorizontalAlignment="Left" Margin="12,468,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="159" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="data1" Grid.Column="4" HorizontalAlignment="Left" Height="197" Margin="908,250,0,0" VerticalAlignment="Top" Width="240" ItemsSource="{Binding Source={StaticResource sugestieViewSource}}" MaxColumnWidth="200" SelectionChanged="DataGrid_SelectionChanged"/>
+        <TextBox x:Name="gridlist" Grid.Column="4" HorizontalAlignment="Left" Height="165" Margin="908,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Background="#FFFAFAFA" IsEnabled="False"/>
+        <Label Content="Sugestii/reclamatii" HorizontalAlignment="Left" Margin="908,222,0,0" VerticalAlignment="Top" Grid.Column="4" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Width="122"/>
+
     </Grid>
 </Window>

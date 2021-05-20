@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace licenta
 {
@@ -54,7 +55,11 @@ namespace licenta
             comboBox3.SelectedIndex = -1;
             
         }
-
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -111,25 +116,7 @@ namespace licenta
                 }
                 conn.Close();
                 
-                var select = "SELECT Angajat.nume_angajat, Proiect.nume_proiect, Comanda.nume_comanda, Pontaj_management.data, Pontaj_management.ora as timp FROM Pontaj_management inner join Angajat on Pontaj_management.nr_angajat = Angajat.Id left join Proiect on Pontaj_management.nr_proiect = Proiect.Id left join Comanda on Pontaj_management.nr_comanda = Comanda.Id WHERE Pontaj_management.Id = (SELECT MAX(Id) FROM Pontaj_management)";
-                var c = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=licenta;Persist Security Info=True;User ID=artur;password=artur"); 
-                var dataAdapter = new SqlDataAdapter(select, c);
-
-
-                
-
-                //dataGridView1.ItemsSource = ds.DefaultView;
-
-
-
-
-                var commandBuilder = new SqlCommandBuilder(dataAdapter);
-                var ds = new DataTable();
-                dataAdapter.Fill(ds);
-
-                dataGridView1.ItemsSource = ds.DefaultView;
-                MessageBox.Show(" Rand Inserat ");
-                //dataGridView1.Show = dataGridView1.RowCount - 1;
+                MessageBox.Show(" Adaugat ");
                 
             }
         }

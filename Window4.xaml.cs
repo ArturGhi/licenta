@@ -50,7 +50,7 @@ namespace licenta
             int x = Int32.Parse(getValue);
 
 
-            var select = "SELECT Angajat.nume_angajat as Angajat, Pontaj.data as Data, Pontaj.ora as Intrare, Pontaj.ora_iesire as Iesire,Pontaj.tip as Observatii, CONVERT(varchar(5), DATEADD(minute, DATEDIFF(minute, ora, ora_iesire), 0),114) AS 'Ore lucrate' FROM Pontaj inner join Angajat on Pontaj.nr_angajat = Angajat.Id WHERE Pontaj.nr_angajat =" + x + "";
+            var select = "SELECT Angajat.nume_angajat as Angajat, FORMAT (Pontaj.data, 'dd.MM.yyyy ') as Data, Pontaj.ora as Intrare, Pontaj.ora_iesire as Iesire,Pontaj.tip as Observatii, CONVERT(varchar(5), DATEADD(minute, DATEDIFF(minute, ora, ora_iesire), 0),114) AS 'Ore lucrate' FROM Pontaj inner join Angajat on Pontaj.nr_angajat = Angajat.Id WHERE Pontaj.nr_angajat =" + x + "Order by data DESC";
             var c = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=licenta;Persist Security Info=True;User ID=artur;password=artur");
             var dataAdapter = new SqlDataAdapter(select, c);
 
@@ -61,7 +61,16 @@ namespace licenta
             dataGridView1.ItemsSource = ds.DefaultView;
             //dataGridView1.Show = dataGridView1.RowCount - 1;
 
+            var selecte = "SELECT Angajat.nume_angajat as Angajat,Comanda.nume_comanda as Comanda, Proiect.nume_proiect as Proiect, FORMAT (Pontaj_management.data, 'dd.MM.yyyy ') as Data, Pontaj_management.ora as Ore FROM Pontaj_management inner join Angajat on Pontaj_management.nr_angajat = Angajat.Id left join Comanda on Pontaj_management.nr_comanda = Comanda.Id left join Proiect on Pontaj_management.nr_proiect = Proiect.Id WHERE Pontaj_management.nr_angajat =" + x + "ORDER BY data DESC";
+            var ce = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=licenta;Persist Security Info=True;User ID=artur;password=artur");
+            var dataAdaptere = new SqlDataAdapter(selecte, ce);
 
+            var commandBuildere = new SqlCommandBuilder(dataAdaptere);
+            var dse = new DataTable();
+            dataAdaptere.Fill(dse);
+
+            dataGridView2.ItemsSource = dse.DefaultView;
+            //dataGridView1.Show = dataGridView1.RowCount - 1;
 
             var selectt = "SELECT Angajat.nume_angajat as Angajat,Cerere.nume_cerere AS Denumire ,Cerere.stare_cerere AS Stare From Cerere inner join Angajat on Cerere.nr_angajat = Angajat.Id WHERE Cerere.nr_angajat =" + x + "";
             var ca = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=licenta;Persist Security Info=True;User ID=artur;password=artur");
@@ -93,6 +102,9 @@ namespace licenta
             testPontaj_managementTableAdapter.Fill(test.Pontaj_management);
             System.Windows.Data.CollectionViewSource pontaj_managementViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("pontaj_managementViewSource")));
             pontaj_managementViewSource.View.MoveCurrentToFirst();
+            datagrid2.IsReadOnly = true;
+            dataGridView1.IsReadOnly = true;
+            dataGridView2.IsReadOnly = true;
         }
     }
 }

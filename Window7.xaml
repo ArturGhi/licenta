@@ -5,31 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
         mc:Ignorable="d"
-        Title="Window7" Height="405" Width="800" Foreground="#FFE8A1A1" Loaded="Window_Loaded">
+        Title="Proces verbal interventii" Height="361" Width="781" Foreground="#FFE8A1A1" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Resources>
         <local:test x:Key="test"/>
         <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
     </Window.Resources>
-    <Grid Height="372" VerticalAlignment="Top" DataContext="{StaticResource angajatViewSource}">
-        <Label Content="Personal:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="55" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Client:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="55" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Reprezentant client:" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="109" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Data:" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top" Width="55" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Interval orar:" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="74" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold" ClipToBounds="True"/>
-        <Label Content="Total nr. ore:" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" Width="74" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Defectiuni constatate si cauzele probabile:" HorizontalAlignment="Left" Margin="400,12,0,0" VerticalAlignment="Top" Width="220" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Lucrari efectuate:" HorizontalAlignment="Left" Margin="400,93,0,0" VerticalAlignment="Top" Width="100" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Observatiile clientului:" HorizontalAlignment="Left" Margin="400,172,0,0" VerticalAlignment="Top" Width="127" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Button Content="Generare" HorizontalAlignment="Left" Margin="634,310,0,0" VerticalAlignment="Top" Width="116" Height="48" Foreground="White" Background="#FFDC4747" FontWeight="Bold" FontSize="16" FontFamily="Calibri" Click="Button_Click"/>
-        <TextBox x:Name="clientbox" HorizontalAlignment="Left" Height="23" Margin="84,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="reprezentantclientbox" HorizontalAlignment="Left" Height="23" Margin="138,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="databox" HorizontalAlignment="Left" Height="23" Margin="84,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="intervalorarbox" HorizontalAlignment="Left" Height="23" Margin="105,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="nrorebox" HorizontalAlignment="Left" Height="23" Margin="105,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="defectiunibox" HorizontalAlignment="Left" Height="46" Margin="532,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
-        <TextBox x:Name="lucraribox" HorizontalAlignment="Left" Height="42" Margin="532,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
-        <TextBox x:Name="observatiibox" HorizontalAlignment="Left" Height="42" Margin="572,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
-        <ComboBox x:Name="personalbox" HorizontalAlignment="Left" Margin="84,12,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id"/>
+    <Grid Height="372" VerticalAlignment="Top" DataContext="{StaticResource angajatViewSource}" Background="#FFE2DEDE">
+        <Label Content="Personal:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="64" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Client:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="46" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Reprezentant client:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="127" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Data:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="46" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Interval orar:" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Width="85" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" ClipToBounds="True" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Total nr. ore:" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="85" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Defectiuni constatate si cauzele&#xD;&#xA;                      probabile:" HorizontalAlignment="Left" Margin="306,12,0,0" VerticalAlignment="Top" Width="204" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="40"/>
+        <Label Content="Lucrari efectuate:" HorizontalAlignment="Left" Margin="306,91,0,0" VerticalAlignment="Top" Width="113" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Observatiile clientului:" HorizontalAlignment="Left" Margin="306,172,0,0" VerticalAlignment="Top" Width="140" OpacityMask="#FFDE4C4C" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Button Content="Generare" HorizontalAlignment="Left" Margin="634,262,0,0" VerticalAlignment="Top" Width="116" Height="48" Foreground="White" Background="#FFDC4747" FontWeight="Bold" FontSize="16" FontFamily="Calibri" Click="Button_Click"/>
+        <TextBox x:Name="clientbox" HorizontalAlignment="Left" Height="23" Margin="160,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="reprezentantclientbox" HorizontalAlignment="Left" Height="23" Margin="160,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="intervalorarbox" HorizontalAlignment="Left" Height="23" Margin="160,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="nrorebox" HorizontalAlignment="Left" Height="23" Margin="160,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="defectiunibox" HorizontalAlignment="Left" Height="75" Margin="532,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" FontFamily="Calibri" FontSize="14" Background="#FFF3F3F3" Foreground="Black"/>
+        <TextBox x:Name="lucraribox" HorizontalAlignment="Left" Height="75" Margin="532,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" FontFamily="Calibri" FontSize="14" Background="#FFF3F3F3" Foreground="Black"/>
+        <TextBox x:Name="observatiibox" HorizontalAlignment="Left" Height="75" Margin="532,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" FontFamily="Calibri" FontSize="14" Background="#FFF3F3F3" Foreground="Black"/>
+        <ComboBox x:Name="personalbox" HorizontalAlignment="Left" Margin="160,9,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id" FontFamily="Calibri" FontSize="14" Foreground="Black"/>
+        <DatePicker x:Name="databox" HorizontalAlignment="Left" Margin="160,103,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Foreground="Black"/>
 
     </Grid>
 </Window>

@@ -1,29 +1,35 @@
-﻿<Window x:Class="licenta.Window11"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="licenta.Window11"
         mc:Ignorable="d"
-        Title="Window11" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Cerere invoire" Height="267" Width="398" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Resources>
         <local:test x:Key="test"/>
         <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource angajatViewSource}">
-        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="29,28,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Functia :" HorizontalAlignment="Left" Margin="29,59,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Data invoire :" HorizontalAlignment="Left" Margin="29,90,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Incepand cu ora :" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Data :" HorizontalAlignment="Left" Margin="29,152,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="pana la ora :" HorizontalAlignment="Left" Margin="167,121,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="148,28,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id"/>
-        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="105,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="zileliberebox" HorizontalAlignment="Left" Height="23" Margin="123,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="perioada1box" HorizontalAlignment="Left" Height="23" Margin="129,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33"/>
-        <TextBox x:Name="perioada2box" HorizontalAlignment="Left" Height="23" Margin="243,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
-        <TextBox x:Name="databox" HorizontalAlignment="Left" Height="23" Margin="81,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43"/>
-        <Button Content="Generare" HorizontalAlignment="Left" Margin="243,177,0,0" VerticalAlignment="Top" Width="102" Height="56" Click="Button_Click"/>
+    <Grid DataContext="{StaticResource angajatViewSource}" Background="#FFE2DEDE" Margin="0,0,-6,-4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="280*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="8,12,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold" Grid.ColumnSpan="2" Height="25" FontSize="14" Width="106"/>
+        <Label Content="Functia :" HorizontalAlignment="Left" Margin="8,43,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold" Height="25" FontSize="14" Width="57"/>
+        <Label Content="Data invoire :" HorizontalAlignment="Left" Margin="8,74,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold" Grid.ColumnSpan="2" Height="25" FontSize="14" Width="86"/>
+        <Label Content="Incepand cu ora :" HorizontalAlignment="Left" Margin="8,105,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold" Grid.ColumnSpan="2" Height="25" FontSize="14" Width="107"/>
+        <Label Content="Data :" HorizontalAlignment="Left" Margin="8,136,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold" Height="25" FontSize="14" Width="45"/>
+        <Label Content="pana la ora :" HorizontalAlignment="Left" Margin="127,106,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold" Grid.Column="1" Height="25" FontSize="14" Width="80"/>
+        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="51,11,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id" Grid.Column="1" FontFamily="Calibri" FontSize="14" Height="26"/>
+        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="51,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" FontFamily="Calibri" FontSize="14"/>
+        <Button Content="Generare" HorizontalAlignment="Left" Margin="188,172,0,0" VerticalAlignment="Top" Width="102" Height="48" Click="Button_Click" Grid.Column="1" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Background="#FFDC4747"/>
+        <DatePicker x:Name="databox" Grid.Column="1" HorizontalAlignment="Left" Margin="52,136,0,0" VerticalAlignment="Top" Width="90" FontFamily="Calibri" FontSize="14"/>
+        <DatePicker x:Name="zileliberebox" Grid.Column="1" HorizontalAlignment="Left" Margin="52,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.3,-0.16" Width="90" FontFamily="Calibri" FontSize="14"/>
+
+        <materialDesign:TimePicker x:Name="perioada1box" Grid.Column="1" Is24Hours="True" HorizontalAlignment="Left" Margin="52,106,0,0" VerticalAlignment="Top" Width="65" FontFamily="Calibri" FontSize="14"/>
+        <materialDesign:TimePicker x:Name="perioada2box" Grid.Column="1" Is24Hours="True" HorizontalAlignment="Left" Margin="220,106,0,0" VerticalAlignment="Top" Width="65" FontFamily="Calibri" FontSize="14"/>
 
     </Grid>
 </Window>

@@ -5,21 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
         mc:Ignorable="d"
-        Title="Window4" Height="450" Width="841.063" Loaded="Window_Loaded">
+        Title="Pagina utilizator" Height="448.5" Width="972.563" Loaded="Window_Loaded" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#FFE2DEDE">
     <Window.Resources>
         <local:test x:Key="test"/>
         <CollectionViewSource x:Key="pontaj_managementViewSource" Source="{Binding Pontaj_management, Source={StaticResource test}}"/>
     </Window.Resources>
-    <Grid Margin="0,0,22,0" DataContext="{StaticResource pontaj_managementViewSource}">
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="23" Margin="96,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="115,162,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <PasswordBox x:Name="textbox2" HorizontalAlignment="Left" Margin="96,99,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
-        <DataGrid x:Name="dataGridView1" ItemsSource="{Binding}" Height="211" Margin="296,26,47,0" VerticalAlignment="Top"/>
-        <Label Content="Cereri" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="datagrid2" HorizontalAlignment="Left" Height="117" Margin="10,279,0,0" VerticalAlignment="Top" Width="180"/>
-        <DataGrid HorizontalAlignment="Left" Height="117" Margin="296,279,0,0" VerticalAlignment="Top" Width="468" ItemsSource="{Binding}"/>
+    <Grid Margin="0,0,4,3" DataContext="{StaticResource pontaj_managementViewSource}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="24" Margin="84,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" FontFamily="Calibri" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Utilizator" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Calibri" FontWeight="ExtraBold" FontSize="14" Foreground="#FF1D59B4" Height="25" Width="62"/>
+        <Label Content="Parola" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Calibri" FontWeight="ExtraBold" FontSize="14" Foreground="#FF1D59B4" Height="25" Width="45"/>
+        <Button Content="Autentificare" HorizontalAlignment="Left" Margin="92,111,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click" Grid.ColumnSpan="2" Padding="5,4"/>
+        <PasswordBox x:Name="textbox2" HorizontalAlignment="Left" Margin="84,66,0,0" VerticalAlignment="Top" Height="26" Width="120" Grid.ColumnSpan="2" FontFamily="Calibri" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Cereri" HorizontalAlignment="Left" Margin="13,198,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="43"/>
+        <DataGrid x:Name="datagrid2" HorizontalAlignment="Left" Height="166" Margin="13,229,0,0" VerticalAlignment="Top" Width="350" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="dataGridView1" HorizontalAlignment="Left" Height="166" Margin="385,28,0,0" VerticalAlignment="Top" Width="560" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="dataGridView2" HorizontalAlignment="Left" Height="166" Margin="385,229,0,0" VerticalAlignment="Top" Width="560" Grid.ColumnSpan="2"/>
+        <Label Content="Pontaj" HorizontalAlignment="Left" Margin="385,-2,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="45"/>
+        <Label Content="Pontaj proiect/comanda" HorizontalAlignment="Left" Margin="385,198,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="157"/>
 
     </Grid>
 </Window>

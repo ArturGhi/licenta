@@ -98,6 +98,58 @@ namespace licenta
             testCerereTableAdapter.Fill(test.Cerere);
             System.Windows.Data.CollectionViewSource cerereViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("cerereViewSource")));
             cerereViewSource.View.MoveCurrentToFirst();
+            // Load data into the table Pontaj_management. You can modify this code as needed.
+            licenta.licentaDataSetTableAdapters.Pontaj_managementTableAdapter licentaDataSetPontaj_managementTableAdapter = new licenta.licentaDataSetTableAdapters.Pontaj_managementTableAdapter();
+            licentaDataSetPontaj_managementTableAdapter.Fill(licentaDataSet.Pontaj_management);
+            System.Windows.Data.CollectionViewSource pontaj_managementViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("pontaj_managementViewSource")));
+            pontaj_managementViewSource.View.MoveCurrentToFirst();
+            // Load data into the table Pontaj1. You can modify this code as needed.
+            /*licenta.licentaDataSetTableAdapters.Pontaj1TableAdapter licentaDataSetPontaj1TableAdapter = new licenta.licentaDataSetTableAdapters.Pontaj1TableAdapter();
+            licentaDataSetPontaj1TableAdapter.Fill(licentaDataSet.Pontaj1);
+            System.Windows.Data.CollectionViewSource pontaj1ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("pontaj1ViewSource")));
+            pontaj1ViewSource.View.MoveCurrentToFirst();
+            */
+            datagrid1.Columns[4].Visibility = Visibility.Collapsed;
+            datagrid1.Columns[5].Visibility = Visibility.Collapsed;
+            datagrid1.Columns[6].Visibility = Visibility.Collapsed;
+            //datagrid1.Columns[7].Visibility = Visibility.Collapsed;
+            datagrid4.Columns[3].Visibility = Visibility.Collapsed;
+            datagrid5.Columns[3].Visibility = Visibility.Collapsed;
+            datagrid2.Columns[5].Visibility = Visibility.Collapsed;
+            this.datagrid1.Columns[1].Header = "Angajat";
+            this.datagrid1.Columns[2].Header = "Departament";
+            this.datagrid1.Columns[3].Header = "Telefon";
+            this.datagrid.Columns[1].Header = "Departament";
+            this.datagrid4.Columns[1].Header = "Nr comanda";
+            this.datagrid4.Columns[2].Header = "Comanda";
+            this.datagrid5.Columns[1].Header = "Nr proiect";
+            this.datagrid5.Columns[2].Header = "Proiect";
+            this.datagrid7.Columns[1].Header = "Angajat";
+            this.datagrid7.Columns[2].Header = "Cerere";
+            this.datagrid7.Columns[3].Header = "Stare";
+            this.datagrid7.Columns[4].Header = "Data";
+            this.grid.Columns[1].Header = "Tip";
+            this.grid.Columns[2].Header = "Nume";
+            this.grid.Columns[3].Header = "Text";
+            this.datagrid8.Columns[1].Header = "Utilizator";
+            this.datagrid8.Columns[2].Header = "Angajat";
+            this.datagrid8.Columns[3].Header = "Parola";
+            this.datagrid8.Columns[4].Header = "Tip";
+
+            this.datagrid2.Columns[2].Header = "Data";
+            this.datagrid2.Columns[3].Header = "Ora intrare";
+            this.datagrid2.Columns[4].Header = "Creat intrare";
+            this.datagrid2.Columns[6].Header = "Tip";
+            this.datagrid2.Columns[7].Header = "Ora iesire";
+            this.datagrid2.Columns[8].Header = "Creat iesire";
+            
+
+
+            // Load data into the table Sugestie. You can modify this code as needed.
+            licenta.licentaDataSetTableAdapters.SugestieTableAdapter licentaDataSetSugestieTableAdapter = new licenta.licentaDataSetTableAdapters.SugestieTableAdapter();
+            licentaDataSetSugestieTableAdapter.Fill(licentaDataSet.Sugestie);
+            System.Windows.Data.CollectionViewSource sugestieViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("sugestieViewSource")));
+            sugestieViewSource.View.MoveCurrentToFirst();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -147,7 +199,7 @@ namespace licenta
             testDepartamentTableAdapter.Fill(test.Departament);
             System.Windows.Data.CollectionViewSource departamentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("departamentViewSource")));
             departamentViewSource.View.MoveCurrentToFirst();
-        } 
+        }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -160,7 +212,7 @@ namespace licenta
 
         private void datagridview_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
-            
+
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -251,7 +303,12 @@ namespace licenta
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
-        
+
+            licenta.licentaDataSet licentaDataSet = ((licenta.licentaDataSet)(this.FindResource("licentaDataSet")));
+            licenta.licentaDataSetTableAdapters.PontajTableAdapter licentaDataSetPontajTableAdapter = new licenta.licentaDataSetTableAdapters.PontajTableAdapter();
+
+            licentaDataSetPontajTableAdapter.Update(licentaDataSet);
+            MessageBox.Show(" Rand salvat ");
         }
 
         private void Button_Click_9(object sender, RoutedEventArgs e)
@@ -365,8 +422,8 @@ namespace licenta
 
         private void Button_Click_16(object sender, RoutedEventArgs e)
         {
-            object item = datagrid6.SelectedItem;
-            string CourseName = (datagrid6.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            object item = datagrid8.SelectedItem;
+            string CourseName = (datagrid8.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             SqlConnection cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=licenta;Persist Security Info=True;User ID=artur;password=artur");
             cn.Open();
             SqlCommand cmd = new SqlCommand("delete from [user] where Id = @Id", cn);
@@ -408,6 +465,7 @@ namespace licenta
 
         private void Button_Click_19(object sender, RoutedEventArgs e)
         {
+
             object item = datagrid7.SelectedItem;
             string CourseName = (datagrid7.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             SqlConnection cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=licenta;Persist Security Info=True;User ID=artur;password=artur");
@@ -418,14 +476,14 @@ namespace licenta
             string getValu = cmd.ExecuteScalar().ToString();
             int z = Int32.Parse(getValu);
             cn.Close();
-            
+
             cn.Open();
-            SqlCommand cmda = new SqlCommand("Select telefon from Angajat where Id = "+z+"", cn);
-            
+            SqlCommand cmda = new SqlCommand("Select telefon from Angajat where Id = " + z + "", cn);
+
             cmd.ExecuteNonQuery();
-            
+
             string getValue = cmda.ExecuteScalar().ToString();
-            
+
             cn.Close();
             object itemm = datagrid7.SelectedItem;
             string CourseNamee = (datagrid7.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
@@ -433,7 +491,7 @@ namespace licenta
             try
             {
                 WebClient client = new WebClient();
-                Stream s = client.OpenRead(string.Format("https://platform.clickatell.com/messages/http/send?apiKey=jlJ8DRJ1RJKIPLuOKDK9aQ==&to="+getValue+"&content=Starea+cererii+"+CourseNameee+"+este+"+CourseNamee+" "));
+                Stream s = client.OpenRead(string.Format("https://platform.clickatell.com/messages/http/send?apiKey=jlJ8DRJ1RJKIPLuOKDK9aQ==&to=" + getValue + "&content=Starea+cererii+" + CourseNameee + "+este+" + CourseNamee + " "));
                 StreamReader reader = new StreamReader(s);
                 string result = reader.ReadToEnd();
                 MessageBox.Show("Mesaj trimis");
@@ -445,18 +503,59 @@ namespace licenta
                 //ex.Message,"eroare",MessageBoxButton.OK
             }
 
-
-
-
-
-
-
-
-
             licenta.test test = ((licenta.test)(this.FindResource("test")));
             licenta.testTableAdapters.CerereTableAdapter testCerereTableAdapter = new licenta.testTableAdapters.CerereTableAdapter();
             testCerereTableAdapter.Update(test);
             MessageBox.Show(" Rand salvat ");
+        }
+    
+
+        private void Button_Click_20(object sender, RoutedEventArgs e)
+        {
+            licenta.licentaDataSet licentaDataSet = ((licenta.licentaDataSet)(this.FindResource("licentaDataSet")));
+            licenta.licentaDataSetTableAdapters.Pontaj_managementTableAdapter licentaDataSetPontaj_managementTableAdapter = new licenta.licentaDataSetTableAdapters.Pontaj_managementTableAdapter();
+
+            licentaDataSetPontaj_managementTableAdapter.Update(licentaDataSet.Pontaj_management);
+            MessageBox.Show(" Rand salvat ");
+            
+           
+        }
+
+        private void datagrid7_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void datagrid7_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            
+        }
+
+        private void datagrid6_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
+        }
+
+        private void datagrid6_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            {
+                
+            }
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid gt = (DataGrid)sender;
+            DataRowView row = gt.SelectedItem as DataRowView;
+            if (row != null)
+            {
+                textboxsugestie.Text = row[3].ToString();
+            }
+        }
+
+        private void datagrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

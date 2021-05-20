@@ -5,45 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
         mc:Ignorable="d"
-        Title="Window12" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Cerere incetare contract" Height="388" Width="644.5" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Resources>
         <local:test x:Key="test"/>
         <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource angajatViewSource}">
-        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="29,26,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="CNP :" HorizontalAlignment="Left" Margin="29,57,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Seria :" HorizontalAlignment="Left" Margin="29,83,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Numarul CI :" HorizontalAlignment="Left" Margin="29,114,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Eliberat de :" HorizontalAlignment="Left" Margin="29,145,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Data eliberarii :" HorizontalAlignment="Left" Margin="29,176,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Domiciliat in loc. :" HorizontalAlignment="Left" Margin="29,202,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Strada :" HorizontalAlignment="Left" Margin="29,233,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Numarul :" HorizontalAlignment="Left" Margin="29,264,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Ap. :" HorizontalAlignment="Left" Margin="29,295,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Judetul :" HorizontalAlignment="Left" Margin="29,326,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Functia :" HorizontalAlignment="Left" Margin="426,26,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Foreground="White" Background="#FFECA661"/>
-        <Label Content="Nr. contract de munca :" HorizontalAlignment="Left" Margin="426,57,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Foreground="White" Background="#FFECA661"/>
-        <Label Content="Data initiere :" HorizontalAlignment="Left" Margin="426,90,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Foreground="White" Background="#FFECA661"/>
-        <Label Content="Data incetare :" HorizontalAlignment="Left" Margin="426,122,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Foreground="White" Background="#FFECA661"/>
-        <Label Content="Data de azi :" HorizontalAlignment="Left" Margin="426,153,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Foreground="White" Background="#FFECA661"/>
-        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="143,30,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id"/>
-        <TextBox x:Name="cnpbox" HorizontalAlignment="Left" Height="23" Margin="75,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="numarcnpbox" HorizontalAlignment="Left" Height="23" Margin="110,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="eliberatdebox" HorizontalAlignment="Left" Height="23" Margin="110,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="dataeliberarebox" HorizontalAlignment="Left" Height="23" Margin="124,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="localitatebox" HorizontalAlignment="Left" Height="23" Margin="132,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="stradabox" HorizontalAlignment="Left" Height="23" Margin="98,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="numarstradabox" HorizontalAlignment="Left" Height="23" Margin="98,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="apbox" HorizontalAlignment="Left" Height="23" Margin="98,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="judetbox" HorizontalAlignment="Left" Height="23" Margin="98,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="485,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="numarcontractbox" HorizontalAlignment="Left" Height="23" Margin="565,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="datainitierebox" HorizontalAlignment="Left" Height="23" Margin="517,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="dataincetarebox" HorizontalAlignment="Left" Height="23" Margin="517,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="datadeazibox" HorizontalAlignment="Left" Height="23" Margin="517,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="seriabox" HorizontalAlignment="Left" Height="23" Margin="89,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Generare" HorizontalAlignment="Left" Margin="485,236,0,0" VerticalAlignment="Top" Width="120" Height="54" Click="Button_Click"/>
+    <Grid DataContext="{StaticResource angajatViewSource}" Background="#FFE2DEDE">
+        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="9,12,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="CNP :" HorizontalAlignment="Left" Margin="9,41,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Seria :" HorizontalAlignment="Left" Margin="9,70,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Numarul CI :" HorizontalAlignment="Left" Margin="9,100,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Eliberat de :" HorizontalAlignment="Left" Margin="9,131,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Data eliberarii :" HorizontalAlignment="Left" Margin="9,160,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Domiciliat in loc. :" HorizontalAlignment="Left" Margin="9,189,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Strada :" HorizontalAlignment="Left" Margin="9,219,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Numarul :" HorizontalAlignment="Left" Margin="9,250,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Ap. :" HorizontalAlignment="Left" Margin="9,281,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Judetul :" HorizontalAlignment="Left" Margin="9,312,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Functia :" HorizontalAlignment="Left" Margin="325,13,0,0" VerticalAlignment="Top" FontFamily="Calibri" Foreground="White" Background="#FFECA661" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Nr. contract de munca :" HorizontalAlignment="Left" Margin="325,44,0,0" VerticalAlignment="Top" FontFamily="Calibri" Foreground="White" Background="#FFECA661" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Data initiere :" HorizontalAlignment="Left" Margin="325,77,0,0" VerticalAlignment="Top" FontFamily="Calibri" Foreground="White" Background="#FFECA661" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Data incetare :" HorizontalAlignment="Left" Margin="325,109,0,0" VerticalAlignment="Top" FontFamily="Calibri" Foreground="White" Background="#FFECA661" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Data de azi :" HorizontalAlignment="Left" Margin="325,140,0,0" VerticalAlignment="Top" FontFamily="Calibri" Foreground="White" Background="#FFECA661" FontSize="14" FontWeight="Bold"/>
+        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="135,11,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="cnpbox" HorizontalAlignment="Left" Height="23" Margin="135,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="numarcnpbox" HorizontalAlignment="Left" Height="23" Margin="135,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="eliberatdebox" HorizontalAlignment="Left" Height="23" Margin="135,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="localitatebox" HorizontalAlignment="Left" Height="23" Margin="135,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="stradabox" HorizontalAlignment="Left" Height="23" Margin="135,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="numarstradabox" HorizontalAlignment="Left" Height="23" Margin="135,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="apbox" HorizontalAlignment="Left" Height="23" Margin="135,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="judetbox" HorizontalAlignment="Left" Height="23" Margin="135,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="483,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="numarcontractbox" HorizontalAlignment="Left" Height="23" Margin="483,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="seriabox" HorizontalAlignment="Left" Height="23" Margin="135,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <Button Content="Generare" HorizontalAlignment="Left" Margin="520,295,0,0" VerticalAlignment="Top" Width="102" Height="48" Click="Button_Click" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Background="#FFDC4747"/>
+        <DatePicker x:Name="dataeliberarebox" HorizontalAlignment="Left" Margin="135,160,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <DatePicker x:Name="datainitierebox" HorizontalAlignment="Left" Margin="483,73,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <DatePicker x:Name="dataincetarebox" HorizontalAlignment="Left" Margin="483,105,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <DatePicker x:Name="datadeazibox" HorizontalAlignment="Left" Margin="483,136,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
 
     </Grid>
 </Window>

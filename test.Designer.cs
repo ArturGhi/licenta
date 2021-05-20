@@ -40,19 +40,17 @@ namespace licenta {
         
         private ProiectDataTable tableProiect;
         
-        private global::System.Data.DataRelation relationFK__Angajat__nr_depa__46E78A0C;
-        
-        private global::System.Data.DataRelation relationFK__Pontaj__nr_angaj__4E88ABD4;
-        
-        private global::System.Data.DataRelation relationFK__Pontaj_ma__nr_an__4BAC3F29;
-        
         private global::System.Data.DataRelation relationFK__Pontaj_ma__nr_co__49C3F6B7;
         
         private global::System.Data.DataRelation relationFK__Pontaj_ma__nr_pr__4AB81AF0;
         
-        private global::System.Data.DataRelation relationFK__User__nr_angajat__5FB337D6;
-        
         private global::System.Data.DataRelation relationFK__Cerere__nr_angaj__6FE99F9F;
+        
+        private global::System.Data.DataRelation relationFK__Pontaj_ma__nr_an__4BAC3F29;
+        
+        private global::System.Data.DataRelation relationFK__Angajat__nr_depa__46E78A0C;
+        
+        private global::System.Data.DataRelation relationFK__User__nr_angajat__5FB337D6;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -376,13 +374,12 @@ namespace licenta {
                     this.tableProiect.InitVars();
                 }
             }
-            this.relationFK__Angajat__nr_depa__46E78A0C = this.Relations["FK__Angajat__nr_depa__46E78A0C"];
-            this.relationFK__Pontaj__nr_angaj__4E88ABD4 = this.Relations["FK__Pontaj__nr_angaj__4E88ABD4"];
-            this.relationFK__Pontaj_ma__nr_an__4BAC3F29 = this.Relations["FK__Pontaj_ma__nr_an__4BAC3F29"];
             this.relationFK__Pontaj_ma__nr_co__49C3F6B7 = this.Relations["FK__Pontaj_ma__nr_co__49C3F6B7"];
             this.relationFK__Pontaj_ma__nr_pr__4AB81AF0 = this.Relations["FK__Pontaj_ma__nr_pr__4AB81AF0"];
-            this.relationFK__User__nr_angajat__5FB337D6 = this.Relations["FK__User__nr_angajat__5FB337D6"];
             this.relationFK__Cerere__nr_angaj__6FE99F9F = this.Relations["FK__Cerere__nr_angaj__6FE99F9F"];
+            this.relationFK__Pontaj_ma__nr_an__4BAC3F29 = this.Relations["FK__Pontaj_ma__nr_an__4BAC3F29"];
+            this.relationFK__Angajat__nr_depa__46E78A0C = this.Relations["FK__Angajat__nr_depa__46E78A0C"];
+            this.relationFK__User__nr_angajat__5FB337D6 = this.Relations["FK__User__nr_angajat__5FB337D6"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -409,18 +406,6 @@ namespace licenta {
             base.Tables.Add(this.tablePontaj_management);
             this.tableProiect = new ProiectDataTable();
             base.Tables.Add(this.tableProiect);
-            this.relationFK__Angajat__nr_depa__46E78A0C = new global::System.Data.DataRelation("FK__Angajat__nr_depa__46E78A0C", new global::System.Data.DataColumn[] {
-                        this.tableDepartament.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableAngajat.nr_departamentColumn}, false);
-            this.Relations.Add(this.relationFK__Angajat__nr_depa__46E78A0C);
-            this.relationFK__Pontaj__nr_angaj__4E88ABD4 = new global::System.Data.DataRelation("FK__Pontaj__nr_angaj__4E88ABD4", new global::System.Data.DataColumn[] {
-                        this.tableAngajat.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePontaj.nr_angajatColumn}, false);
-            this.Relations.Add(this.relationFK__Pontaj__nr_angaj__4E88ABD4);
-            this.relationFK__Pontaj_ma__nr_an__4BAC3F29 = new global::System.Data.DataRelation("FK__Pontaj_ma__nr_an__4BAC3F29", new global::System.Data.DataColumn[] {
-                        this.tableAngajat.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePontaj_management.nr_angajatColumn}, false);
-            this.Relations.Add(this.relationFK__Pontaj_ma__nr_an__4BAC3F29);
             this.relationFK__Pontaj_ma__nr_co__49C3F6B7 = new global::System.Data.DataRelation("FK__Pontaj_ma__nr_co__49C3F6B7", new global::System.Data.DataColumn[] {
                         this.tableComanda.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tablePontaj_management.nr_comandaColumn}, false);
@@ -429,14 +414,22 @@ namespace licenta {
                         this.tableProiect.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tablePontaj_management.nr_proiectColumn}, false);
             this.Relations.Add(this.relationFK__Pontaj_ma__nr_pr__4AB81AF0);
-            this.relationFK__User__nr_angajat__5FB337D6 = new global::System.Data.DataRelation("FK__User__nr_angajat__5FB337D6", new global::System.Data.DataColumn[] {
-                        this.tableAngajat.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableUser.nr_angajatColumn}, false);
-            this.Relations.Add(this.relationFK__User__nr_angajat__5FB337D6);
             this.relationFK__Cerere__nr_angaj__6FE99F9F = new global::System.Data.DataRelation("FK__Cerere__nr_angaj__6FE99F9F", new global::System.Data.DataColumn[] {
                         this.tableAngajat.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableCerere.nr_angajatColumn}, false);
             this.Relations.Add(this.relationFK__Cerere__nr_angaj__6FE99F9F);
+            this.relationFK__Pontaj_ma__nr_an__4BAC3F29 = new global::System.Data.DataRelation("FK__Pontaj_ma__nr_an__4BAC3F29", new global::System.Data.DataColumn[] {
+                        this.tableAngajat.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePontaj_management.nr_angajatColumn}, false);
+            this.Relations.Add(this.relationFK__Pontaj_ma__nr_an__4BAC3F29);
+            this.relationFK__Angajat__nr_depa__46E78A0C = new global::System.Data.DataRelation("FK__Angajat__nr_depa__46E78A0C", new global::System.Data.DataColumn[] {
+                        this.tableDepartament.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAngajat.nr_departamentColumn}, false);
+            this.Relations.Add(this.relationFK__Angajat__nr_depa__46E78A0C);
+            this.relationFK__User__nr_angajat__5FB337D6 = new global::System.Data.DataRelation("FK__User__nr_angajat__5FB337D6", new global::System.Data.DataColumn[] {
+                        this.tableAngajat.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUser.nr_angajatColumn}, false);
+            this.Relations.Add(this.relationFK__User__nr_angajat__5FB337D6);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -575,13 +568,13 @@ namespace licenta {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnusername;
-            
-            private global::System.Data.DataColumn columntip;
-            
             private global::System.Data.DataColumn columnParola;
             
             private global::System.Data.DataColumn columnnr_angajat;
+            
+            private global::System.Data.DataColumn columnUsername;
+            
+            private global::System.Data.DataColumn columnTip;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -626,22 +619,6 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn usernameColumn {
-                get {
-                    return this.columnusername;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tipColumn {
-                get {
-                    return this.columntip;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn ParolaColumn {
                 get {
                     return this.columnParola;
@@ -653,6 +630,22 @@ namespace licenta {
             public global::System.Data.DataColumn nr_angajatColumn {
                 get {
                     return this.columnnr_angajat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UsernameColumn {
+                get {
+                    return this.columnUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TipColumn {
+                get {
+                    return this.columnTip;
                 }
             }
             
@@ -693,16 +686,16 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UserRow AddUserRow(string username, int tip, string Parola, AngajatRow parentAngajatRowByFK__User__nr_angajat__5FB337D6) {
+            public UserRow AddUserRow(string Parola, AngajatRow parentAngajatRowByFK__User__nr_angajat__5FB337D6, string Username, int Tip) {
                 UserRow rowUserRow = ((UserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        username,
-                        tip,
                         Parola,
-                        null};
+                        null,
+                        Username,
+                        Tip};
                 if ((parentAngajatRowByFK__User__nr_angajat__5FB337D6 != null)) {
-                    columnValuesArray[4] = parentAngajatRowByFK__User__nr_angajat__5FB337D6[0];
+                    columnValuesArray[2] = parentAngajatRowByFK__User__nr_angajat__5FB337D6[0];
                 }
                 rowUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUserRow);
@@ -734,10 +727,10 @@ namespace licenta {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnusername = base.Columns["username"];
-                this.columntip = base.Columns["tip"];
                 this.columnParola = base.Columns["Parola"];
                 this.columnnr_angajat = base.Columns["nr_angajat"];
+                this.columnUsername = base.Columns["Username"];
+                this.columnTip = base.Columns["Tip"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -745,14 +738,14 @@ namespace licenta {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnusername);
-                this.columntip = new global::System.Data.DataColumn("tip", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntip);
                 this.columnParola = new global::System.Data.DataColumn("Parola", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnParola);
                 this.columnnr_angajat = new global::System.Data.DataColumn("nr_angajat", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnr_angajat);
+                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsername);
+                this.columnTip = new global::System.Data.DataColumn("Tip", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTip);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -761,12 +754,11 @@ namespace licenta {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnusername.AllowDBNull = false;
-                this.columnusername.MaxLength = 50;
-                this.columntip.AllowDBNull = false;
                 this.columnParola.AllowDBNull = false;
                 this.columnParola.MaxLength = 50;
                 this.columnnr_angajat.AllowDBNull = false;
+                this.columnUsername.AllowDBNull = false;
+                this.columnUsername.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1027,13 +1019,6 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AngajatRow FindById(int Id) {
-                return ((AngajatRow)(this.Rows.Find(new object[] {
-                            Id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 AngajatDataTable cln = ((AngajatDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1066,14 +1051,11 @@ namespace licenta {
                 base.Columns.Add(this.columnnr_departament);
                 this.columntelefon = new global::System.Data.DataColumn("telefon", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntelefon);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
                 this.columnnume_angajat.AllowDBNull = false;
                 this.columnnume_angajat.MaxLength = 50;
                 this.columnnr_departament.AllowDBNull = false;
@@ -2107,23 +2089,21 @@ namespace licenta {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnnr_angajat;
-            
             private global::System.Data.DataColumn columndata;
-            
-            private global::System.Data.DataColumn columnora;
             
             private global::System.Data.DataColumn columndata_creare;
             
             private global::System.Data.DataColumn columndata_modificare;
             
-            private global::System.Data.DataColumn columntip;
-            
             private global::System.Data.DataColumn columnora_iesire;
             
             private global::System.Data.DataColumn columndata_creare_iesire;
             
-            private global::System.Data.DataColumn columnore_lucrate;
+            private global::System.Data.DataColumn columnAngajat;
+            
+            private global::System.Data.DataColumn columnora;
+            
+            private global::System.Data.DataColumn columntip;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2168,25 +2148,9 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn nr_angajatColumn {
-                get {
-                    return this.columnnr_angajat;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn dataColumn {
                 get {
                     return this.columndata;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn oraColumn {
-                get {
-                    return this.columnora;
                 }
             }
             
@@ -2208,14 +2172,6 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tipColumn {
-                get {
-                    return this.columntip;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn ora_iesireColumn {
                 get {
                     return this.columnora_iesire;
@@ -2232,9 +2188,25 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ore_lucrateColumn {
+            public global::System.Data.DataColumn AngajatColumn {
                 get {
-                    return this.columnore_lucrate;
+                    return this.columnAngajat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn oraColumn {
+                get {
+                    return this.columnora;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tipColumn {
+                get {
+                    return this.columntip;
                 }
             }
             
@@ -2275,22 +2247,18 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PontajRow AddPontajRow(AngajatRow parentAngajatRowByFK__Pontaj__nr_angaj__4E88ABD4, System.DateTime data, double ora, System.DateTime data_creare, System.DateTime data_modificare, int tip, System.TimeSpan ora_iesire, System.DateTime data_creare_iesire, System.TimeSpan ore_lucrate) {
+            public PontajRow AddPontajRow(System.DateTime data, System.DateTime data_creare, System.DateTime data_modificare, System.TimeSpan ora_iesire, System.DateTime data_creare_iesire, int Angajat, System.TimeSpan ora, string tip) {
                 PontajRow rowPontajRow = ((PontajRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
                         data,
-                        ora,
                         data_creare,
                         data_modificare,
-                        tip,
                         ora_iesire,
                         data_creare_iesire,
-                        ore_lucrate};
-                if ((parentAngajatRowByFK__Pontaj__nr_angaj__4E88ABD4 != null)) {
-                    columnValuesArray[1] = parentAngajatRowByFK__Pontaj__nr_angaj__4E88ABD4[0];
-                }
+                        Angajat,
+                        ora,
+                        tip};
                 rowPontajRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPontajRow);
                 return rowPontajRow;
@@ -2321,15 +2289,14 @@ namespace licenta {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnnr_angajat = base.Columns["nr_angajat"];
                 this.columndata = base.Columns["data"];
-                this.columnora = base.Columns["ora"];
                 this.columndata_creare = base.Columns["data_creare"];
                 this.columndata_modificare = base.Columns["data_modificare"];
-                this.columntip = base.Columns["tip"];
                 this.columnora_iesire = base.Columns["ora_iesire"];
                 this.columndata_creare_iesire = base.Columns["data_creare_iesire"];
-                this.columnore_lucrate = base.Columns["ore_lucrate"];
+                this.columnAngajat = base.Columns["Angajat"];
+                this.columnora = base.Columns["ora"];
+                this.columntip = base.Columns["tip"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2337,24 +2304,22 @@ namespace licenta {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnnr_angajat = new global::System.Data.DataColumn("nr_angajat", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnr_angajat);
                 this.columndata = new global::System.Data.DataColumn("data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndata);
-                this.columnora = new global::System.Data.DataColumn("ora", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnora);
                 this.columndata_creare = new global::System.Data.DataColumn("data_creare", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndata_creare);
                 this.columndata_modificare = new global::System.Data.DataColumn("data_modificare", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndata_modificare);
-                this.columntip = new global::System.Data.DataColumn("tip", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntip);
                 this.columnora_iesire = new global::System.Data.DataColumn("ora_iesire", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnora_iesire);
                 this.columndata_creare_iesire = new global::System.Data.DataColumn("data_creare_iesire", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndata_creare_iesire);
-                this.columnore_lucrate = new global::System.Data.DataColumn("ore_lucrate", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnore_lucrate);
+                this.columnAngajat = new global::System.Data.DataColumn("Angajat", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAngajat);
+                this.columnora = new global::System.Data.DataColumn("ora", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnora);
+                this.columntip = new global::System.Data.DataColumn("tip", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntip);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2363,9 +2328,10 @@ namespace licenta {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnnr_angajat.AllowDBNull = false;
                 this.columndata.AllowDBNull = false;
-                this.columnora.AllowDBNull = false;
+                this.columnAngajat.AllowDBNull = false;
+                this.columntip.AllowDBNull = false;
+                this.columntip.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3199,28 +3165,6 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string username {
-                get {
-                    return ((string)(this[this.tableUser.usernameColumn]));
-                }
-                set {
-                    this[this.tableUser.usernameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int tip {
-                get {
-                    return ((int)(this[this.tableUser.tipColumn]));
-                }
-                set {
-                    this[this.tableUser.tipColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Parola {
                 get {
                     return ((string)(this[this.tableUser.ParolaColumn]));
@@ -3243,6 +3187,33 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Username {
+                get {
+                    return ((string)(this[this.tableUser.UsernameColumn]));
+                }
+                set {
+                    this[this.tableUser.UsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Tip {
+                get {
+                    try {
+                        return ((int)(this[this.tableUser.TipColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tip\' in table \'User\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUser.TipColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AngajatRow AngajatRow {
                 get {
                     return ((AngajatRow)(this.GetParentRow(this.Table.ParentRelations["FK__User__nr_angajat__5FB337D6"])));
@@ -3250,6 +3221,18 @@ namespace licenta {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__User__nr_angajat__5FB337D6"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTipNull() {
+                return this.IsNull(this.tableUser.TipColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTipNull() {
+                this[this.tableUser.TipColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3324,12 +3307,12 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PontajRow[] GetPontajRows() {
-                if ((this.Table.ChildRelations["FK__Pontaj__nr_angaj__4E88ABD4"] == null)) {
-                    return new PontajRow[0];
+            public CerereRow[] GetCerereRows() {
+                if ((this.Table.ChildRelations["FK__Cerere__nr_angaj__6FE99F9F"] == null)) {
+                    return new CerereRow[0];
                 }
                 else {
-                    return ((PontajRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Pontaj__nr_angaj__4E88ABD4"])));
+                    return ((CerereRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Cerere__nr_angaj__6FE99F9F"])));
                 }
             }
             
@@ -3352,17 +3335,6 @@ namespace licenta {
                 }
                 else {
                     return ((UserRow[])(base.GetChildRows(this.Table.ChildRelations["FK__User__nr_angajat__5FB337D6"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CerereRow[] GetCerereRows() {
-                if ((this.Table.ChildRelations["FK__Cerere__nr_angaj__6FE99F9F"] == null)) {
-                    return new CerereRow[0];
-                }
-                else {
-                    return ((CerereRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Cerere__nr_angaj__6FE99F9F"])));
                 }
             }
         }
@@ -3599,34 +3571,12 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int nr_angajat {
-                get {
-                    return ((int)(this[this.tablePontaj.nr_angajatColumn]));
-                }
-                set {
-                    this[this.tablePontaj.nr_angajatColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime data {
                 get {
                     return ((global::System.DateTime)(this[this.tablePontaj.dataColumn]));
                 }
                 set {
                     this[this.tablePontaj.dataColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double ora {
-                get {
-                    return ((double)(this[this.tablePontaj.oraColumn]));
-                }
-                set {
-                    this[this.tablePontaj.oraColumn] = value;
                 }
             }
             
@@ -3664,22 +3614,6 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int tip {
-                get {
-                    try {
-                        return ((int)(this[this.tablePontaj.tipColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'tip\' in table \'Pontaj\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePontaj.tipColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.TimeSpan ora_iesire {
                 get {
                     try {
@@ -3712,28 +3646,39 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan ore_lucrate {
+            public int Angajat {
                 get {
-                    try {
-                        return ((global::System.TimeSpan)(this[this.tablePontaj.ore_lucrateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ore_lucrate\' in table \'Pontaj\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablePontaj.AngajatColumn]));
                 }
                 set {
-                    this[this.tablePontaj.ore_lucrateColumn] = value;
+                    this[this.tablePontaj.AngajatColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AngajatRow AngajatRow {
+            public System.TimeSpan ora {
                 get {
-                    return ((AngajatRow)(this.GetParentRow(this.Table.ParentRelations["FK__Pontaj__nr_angaj__4E88ABD4"])));
+                    try {
+                        return ((global::System.TimeSpan)(this[this.tablePontaj.oraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ora\' in table \'Pontaj\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Pontaj__nr_angaj__4E88ABD4"]);
+                    this[this.tablePontaj.oraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string tip {
+                get {
+                    return ((string)(this[this.tablePontaj.tipColumn]));
+                }
+                set {
+                    this[this.tablePontaj.tipColumn] = value;
                 }
             }
             
@@ -3763,18 +3708,6 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstipNull() {
-                return this.IsNull(this.tablePontaj.tipColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettipNull() {
-                this[this.tablePontaj.tipColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isora_iesireNull() {
                 return this.IsNull(this.tablePontaj.ora_iesireColumn);
             }
@@ -3799,14 +3732,14 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isore_lucrateNull() {
-                return this.IsNull(this.tablePontaj.ore_lucrateColumn);
+            public bool IsoraNull() {
+                return this.IsNull(this.tablePontaj.oraColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setore_lucrateNull() {
-                this[this.tablePontaj.ore_lucrateColumn] = global::System.Convert.DBNull;
+            public void SetoraNull() {
+                this[this.tablePontaj.oraColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3950,17 +3883,6 @@ namespace licenta {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AngajatRow AngajatRow {
-                get {
-                    return ((AngajatRow)(this.GetParentRow(this.Table.ParentRelations["FK__Pontaj_ma__nr_an__4BAC3F29"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Pontaj_ma__nr_an__4BAC3F29"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ComandaRow ComandaRow {
                 get {
                     return ((ComandaRow)(this.GetParentRow(this.Table.ParentRelations["FK__Pontaj_ma__nr_co__49C3F6B7"])));
@@ -3978,6 +3900,17 @@ namespace licenta {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Pontaj_ma__nr_pr__4AB81AF0"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AngajatRow AngajatRow {
+                get {
+                    return ((AngajatRow)(this.GetParentRow(this.Table.ParentRelations["FK__Pontaj_ma__nr_an__4BAC3F29"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Pontaj_ma__nr_an__4BAC3F29"]);
                 }
             }
             
@@ -4499,10 +4432,10 @@ namespace licenta.testTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "User";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("username", "username");
-            tableMapping.ColumnMappings.Add("tip", "tip");
             tableMapping.ColumnMappings.Add("Parola", "Parola");
             tableMapping.ColumnMappings.Add("nr_angajat", "nr_angajat");
+            tableMapping.ColumnMappings.Add("Username", "Username");
+            tableMapping.ColumnMappings.Add("Tip", "Tip");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -5116,14 +5049,6 @@ SELECT Id, nume_angajat, nr_departament, telefon FROM Angajat WHERE (Id = @Id) O
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nume_angajat, int nr_departament, string telefon, int Original_Id, string Original_nume_angajat, int Original_nr_departament, string Original_telefon) {
-            return this.Update(nume_angajat, nr_departament, telefon, Original_Id, Original_nume_angajat, Original_nr_departament, Original_telefon, Original_Id);
         }
     }
     
@@ -6264,22 +6189,21 @@ SELECT Id, numar_comanda, nume_comanda FROM Comanda WHERE (Id = @Id)";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Pontaj";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("nr_angajat", "nr_angajat");
             tableMapping.ColumnMappings.Add("data", "data");
-            tableMapping.ColumnMappings.Add("ora", "ora");
             tableMapping.ColumnMappings.Add("data_creare", "data_creare");
             tableMapping.ColumnMappings.Add("data_modificare", "data_modificare");
-            tableMapping.ColumnMappings.Add("tip", "tip");
             tableMapping.ColumnMappings.Add("ora_iesire", "ora_iesire");
             tableMapping.ColumnMappings.Add("data_creare_iesire", "data_creare_iesire");
-            tableMapping.ColumnMappings.Add("ore_lucrate", "ore_lucrate");
+            tableMapping.ColumnMappings.Add("Angajat", "Angajat");
+            tableMapping.ColumnMappings.Add("ora", "ora");
+            tableMapping.ColumnMappings.Add("tip", "tip");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Pontaj] WHERE (([Id] = @Original_Id) AND ([nr_angajat] = @Original_nr_angajat) AND ([data] = @Original_data) AND ((@IsNull_ora = 1 AND [ora] IS NULL) OR ([ora] = @Original_ora)) AND ((@IsNull_data_creare = 1 AND [data_creare] IS NULL) OR ([data_creare] = @Original_data_creare)) AND ((@IsNull_data_modificare = 1 AND [data_modificare] IS NULL) OR ([data_modificare] = @Original_data_modificare)) AND ([tip] = @Original_tip) AND ((@IsNull_data_creare_iesire = 1 AND [data_creare_iesire] IS NULL) OR ([data_creare_iesire] = @Original_data_creare_iesire)) AND ((@IsNull_ora_iesire = 1 AND [ora_iesire] IS NULL) OR ([ora_iesire] = @Original_ora_iesire)) AND ((@IsNull_ore_lucrate = 1 AND [ore_lucrate] IS NULL) OR ([ore_lucrate] = @Original_ore_lucrate)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Pontaj] WHERE (([Id] = @Original_Id) AND ([nr_angajat] = @Original_Angajat) AND ([data] = @Original_data) AND ((@IsNull_ora = 1 AND [ora] IS NULL) OR ([ora] = @Original_ora)) AND ((@IsNull_data_creare = 1 AND [data_creare] IS NULL) OR ([data_creare] = @Original_data_creare)) AND ((@IsNull_data_modificare = 1 AND [data_modificare] IS NULL) OR ([data_modificare] = @Original_data_modificare)) AND ([tip] = @Original_tip) AND ((@IsNull_data_creare_iesire = 1 AND [data_creare_iesire] IS NULL) OR ([data_creare_iesire] = @Original_data_creare_iesire)) AND ((@IsNull_ora_iesire = 1 AND [ora_iesire] IS NULL) OR ([ora_iesire] = @Original_ora_iesire)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nr_angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nr_angajat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angajat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6292,14 +6216,12 @@ SELECT Id, numar_comanda, nume_comanda FROM Comanda WHERE (Id = @Id)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_creare_iesire", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_creare_iesire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ora_iesire", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora_iesire", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ora_iesire", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora_iesire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ore_lucrate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ore_lucrate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ore_lucrate", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ore_lucrate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Pontaj] ([nr_angajat], [data], [ora], [data_creare], [data_modificare], [tip], [data_creare_iesire], [ora_iesire], [ore_lucrate]) VALUES (@nr_angajat, @data, @ora, @data_creare, @data_modificare, @tip, @data_creare_iesire, @ora_iesire, @ore_lucrate);
-SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare_iesire, ora_iesire, ore_lucrate FROM Pontaj WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Pontaj] ([nr_angajat], [data], [ora], [data_creare], [data_modificare], [tip], [data_creare_iesire], [ora_iesire]) VALUES (@Angajat, @data, @ora, @data_creare, @data_modificare, @tip, @data_creare_iesire, @ora_iesire);
+SELECT Id, nr_angajat AS Angajat, data, ora, data_creare, data_modificare, tip, data_creare_iesire, ora_iesire FROM Pontaj WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nr_angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nr_angajat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angajat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_creare", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_creare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6307,13 +6229,12 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tip", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_creare_iesire", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_creare_iesire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ora_iesire", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora_iesire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ore_lucrate", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ore_lucrate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Pontaj] SET [nr_angajat] = @nr_angajat, [data] = @data, [ora] = @ora, [data_creare] = @data_creare, [data_modificare] = @data_modificare, [tip] = @tip, [data_creare_iesire] = @data_creare_iesire, [ora_iesire] = @ora_iesire, [ore_lucrate] = @ore_lucrate WHERE (([Id] = @Original_Id) AND ([nr_angajat] = @Original_nr_angajat) AND ([data] = @Original_data) AND ((@IsNull_ora = 1 AND [ora] IS NULL) OR ([ora] = @Original_ora)) AND ((@IsNull_data_creare = 1 AND [data_creare] IS NULL) OR ([data_creare] = @Original_data_creare)) AND ((@IsNull_data_modificare = 1 AND [data_modificare] IS NULL) OR ([data_modificare] = @Original_data_modificare)) AND ([tip] = @Original_tip) AND ((@IsNull_data_creare_iesire = 1 AND [data_creare_iesire] IS NULL) OR ([data_creare_iesire] = @Original_data_creare_iesire)) AND ((@IsNull_ora_iesire = 1 AND [ora_iesire] IS NULL) OR ([ora_iesire] = @Original_ora_iesire)) AND ((@IsNull_ore_lucrate = 1 AND [ore_lucrate] IS NULL) OR ([ore_lucrate] = @Original_ore_lucrate)));
-SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare_iesire, ora_iesire, ore_lucrate FROM Pontaj WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Pontaj] SET [nr_angajat] = @Angajat, [data] = @data, [ora] = @ora, [data_creare] = @data_creare, [data_modificare] = @data_modificare, [tip] = @tip, [data_creare_iesire] = @data_creare_iesire, [ora_iesire] = @ora_iesire WHERE (([Id] = @Original_Id) AND ([nr_angajat] = @Original_Angajat) AND ([data] = @Original_data) AND ((@IsNull_ora = 1 AND [ora] IS NULL) OR ([ora] = @Original_ora)) AND ((@IsNull_data_creare = 1 AND [data_creare] IS NULL) OR ([data_creare] = @Original_data_creare)) AND ((@IsNull_data_modificare = 1 AND [data_modificare] IS NULL) OR ([data_modificare] = @Original_data_modificare)) AND ([tip] = @Original_tip) AND ((@IsNull_data_creare_iesire = 1 AND [data_creare_iesire] IS NULL) OR ([data_creare_iesire] = @Original_data_creare_iesire)) AND ((@IsNull_ora_iesire = 1 AND [ora_iesire] IS NULL) OR ([ora_iesire] = @Original_ora_iesire)));
+SELECT Id, nr_angajat AS Angajat, data, ora, data_creare, data_modificare, tip, data_creare_iesire, ora_iesire FROM Pontaj WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nr_angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nr_angajat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angajat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_creare", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_creare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6321,9 +6242,8 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tip", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_creare_iesire", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_creare_iesire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ora_iesire", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora_iesire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ore_lucrate", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ore_lucrate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nr_angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nr_angajat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Angajat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angajat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6336,8 +6256,6 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_creare_iesire", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_creare_iesire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ora_iesire", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora_iesire", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ora_iesire", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ora_iesire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ore_lucrate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ore_lucrate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ore_lucrate", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ore_lucrate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6354,8 +6272,8 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare_" +
-                "iesire, ora_iesire, ore_lucrate FROM Pontaj";
+            this._commandCollection[0].CommandText = "SELECT Id, nr_angajat as Angajat, data, ora, data_creare, data_modificare, tip, d" +
+                "ata_creare_iesire, ora_iesire  FROM Pontaj";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6416,9 +6334,9 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, int Original_nr_angajat, System.DateTime Original_data, global::System.Nullable<global::System.TimeSpan> Original_ora, global::System.Nullable<global::System.DateTime> Original_data_creare, global::System.Nullable<global::System.DateTime> Original_data_modificare, string Original_tip, global::System.Nullable<global::System.DateTime> Original_data_creare_iesire, global::System.Nullable<global::System.TimeSpan> Original_ora_iesire, global::System.Nullable<global::System.TimeSpan> Original_ore_lucrate) {
+        public virtual int Delete(int Original_Id, int Original_Angajat, System.DateTime Original_data, global::System.Nullable<global::System.TimeSpan> Original_ora, global::System.Nullable<global::System.DateTime> Original_data_creare, global::System.Nullable<global::System.DateTime> Original_data_modificare, string Original_tip, global::System.Nullable<global::System.DateTime> Original_data_creare_iesire, global::System.Nullable<global::System.TimeSpan> Original_ora_iesire) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_nr_angajat));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Angajat));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_data));
             if ((Original_ora.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
@@ -6466,14 +6384,6 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_ore_lucrate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((System.TimeSpan)(Original_ore_lucrate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6494,8 +6404,8 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int nr_angajat, System.DateTime data, global::System.Nullable<global::System.TimeSpan> ora, global::System.Nullable<global::System.DateTime> data_creare, global::System.Nullable<global::System.DateTime> data_modificare, string tip, global::System.Nullable<global::System.DateTime> data_creare_iesire, global::System.Nullable<global::System.TimeSpan> ora_iesire, global::System.Nullable<global::System.TimeSpan> ore_lucrate) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(nr_angajat));
+        public virtual int Insert(int Angajat, System.DateTime data, global::System.Nullable<global::System.TimeSpan> ora, global::System.Nullable<global::System.DateTime> data_creare, global::System.Nullable<global::System.DateTime> data_modificare, string tip, global::System.Nullable<global::System.DateTime> data_creare_iesire, global::System.Nullable<global::System.TimeSpan> ora_iesire) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Angajat));
             this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(data));
             if ((ora.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((System.TimeSpan)(ora.Value));
@@ -6533,12 +6443,6 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((ore_lucrate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.TimeSpan)(ore_lucrate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6560,7 +6464,7 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int nr_angajat, 
+                    int Angajat, 
                     System.DateTime data, 
                     global::System.Nullable<global::System.TimeSpan> ora, 
                     global::System.Nullable<global::System.DateTime> data_creare, 
@@ -6568,9 +6472,8 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
                     string tip, 
                     global::System.Nullable<global::System.DateTime> data_creare_iesire, 
                     global::System.Nullable<global::System.TimeSpan> ora_iesire, 
-                    global::System.Nullable<global::System.TimeSpan> ore_lucrate, 
                     int Original_Id, 
-                    int Original_nr_angajat, 
+                    int Original_Angajat, 
                     System.DateTime Original_data, 
                     global::System.Nullable<global::System.TimeSpan> Original_ora, 
                     global::System.Nullable<global::System.DateTime> Original_data_creare, 
@@ -6578,9 +6481,8 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
                     string Original_tip, 
                     global::System.Nullable<global::System.DateTime> Original_data_creare_iesire, 
                     global::System.Nullable<global::System.TimeSpan> Original_ora_iesire, 
-                    global::System.Nullable<global::System.TimeSpan> Original_ore_lucrate, 
                     int Id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(nr_angajat));
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Angajat));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(data));
             if ((ora.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((System.TimeSpan)(ora.Value));
@@ -6618,70 +6520,56 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((ore_lucrate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.TimeSpan)(ore_lucrate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_nr_angajat));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_data));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Angajat));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_data));
             if ((Original_ora.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.TimeSpan)(Original_ora.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.TimeSpan)(Original_ora.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_data_creare.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_data_creare.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_data_creare.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_data_modificare.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_data_modificare.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_data_modificare.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_tip == null)) {
                 throw new global::System.ArgumentNullException("Original_tip");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_tip));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_tip));
             }
             if ((Original_data_creare_iesire.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_data_creare_iesire.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_data_creare_iesire.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             if ((Original_ora_iesire.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.TimeSpan)(Original_ora_iesire.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.TimeSpan)(Original_ora_iesire.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_ore_lucrate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.TimeSpan)(Original_ore_lucrate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Id));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6703,7 +6591,7 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int nr_angajat, 
+                    int Angajat, 
                     System.DateTime data, 
                     global::System.Nullable<global::System.TimeSpan> ora, 
                     global::System.Nullable<global::System.DateTime> data_creare, 
@@ -6711,18 +6599,16 @@ SELECT Id, nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare
                     string tip, 
                     global::System.Nullable<global::System.DateTime> data_creare_iesire, 
                     global::System.Nullable<global::System.TimeSpan> ora_iesire, 
-                    global::System.Nullable<global::System.TimeSpan> ore_lucrate, 
                     int Original_Id, 
-                    int Original_nr_angajat, 
+                    int Original_Angajat, 
                     System.DateTime Original_data, 
                     global::System.Nullable<global::System.TimeSpan> Original_ora, 
                     global::System.Nullable<global::System.DateTime> Original_data_creare, 
                     global::System.Nullable<global::System.DateTime> Original_data_modificare, 
                     string Original_tip, 
                     global::System.Nullable<global::System.DateTime> Original_data_creare_iesire, 
-                    global::System.Nullable<global::System.TimeSpan> Original_ora_iesire, 
-                    global::System.Nullable<global::System.TimeSpan> Original_ore_lucrate) {
-            return this.Update(nr_angajat, data, ora, data_creare, data_modificare, tip, data_creare_iesire, ora_iesire, ore_lucrate, Original_Id, Original_nr_angajat, Original_data, Original_ora, Original_data_creare, Original_data_modificare, Original_tip, Original_data_creare_iesire, Original_ora_iesire, Original_ore_lucrate, Original_Id);
+                    global::System.Nullable<global::System.TimeSpan> Original_ora_iesire) {
+            return this.Update(Angajat, data, ora, data_creare, data_modificare, tip, data_creare_iesire, ora_iesire, Original_Id, Original_Angajat, Original_data, Original_ora, Original_data_creare, Original_data_modificare, Original_tip, Original_data_creare_iesire, Original_ora_iesire, Original_Id);
         }
     }
     

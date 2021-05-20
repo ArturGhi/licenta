@@ -5,25 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
         mc:Ignorable="d"
-        Title="Window9" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Cerere plata salariu in avans" Height="318" Width="311" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Resources>
         <local:test x:Key="test"/>
         <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource angajatViewSource}">
-        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Functia :" HorizontalAlignment="Left" Margin="32,41,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Suma avans :" HorizontalAlignment="Left" Margin="32,72,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Nr. rate retinere :" HorizontalAlignment="Left" Margin="32,98,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Prima luna retinere :" HorizontalAlignment="Left" Margin="32,129,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Data :" HorizontalAlignment="Left" Margin="32,155,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="109,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="avansbox" HorizontalAlignment="Left" Height="23" Margin="116,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ratebox" HorizontalAlignment="Left" Height="23" Margin="137,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="lunabox" HorizontalAlignment="Left" Height="23" Margin="153,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="databox" HorizontalAlignment="Left" Height="23" Margin="94,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="136,18,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id"/>
-        <Button Content="Generare" HorizontalAlignment="Left" Margin="348,200,0,0" VerticalAlignment="Top" Width="122" Height="48" Click="Button_Click"/>
+    <Grid DataContext="{StaticResource angajatViewSource}" Background="#FFE2DEDE" Margin="0,0,-6,-2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="146*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="13,11,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="120"/>
+        <Label Content="Functia :" HorizontalAlignment="Left" Margin="11,44,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="65"/>
+        <Label Content="Suma avans :" HorizontalAlignment="Left" Margin="11,78,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="95"/>
+        <Label Content="Nr. rate retinere :" HorizontalAlignment="Left" Margin="11,111,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="122"/>
+        <Label Content="Prima luna retinere :" HorizontalAlignment="Left" Margin="11,144,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="144"/>
+        <Label Content="Data :" HorizontalAlignment="Left" Margin="11,177,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="25" Width="47"/>
+        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="11,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Grid.Column="1"/>
+        <TextBox x:Name="avansbox" HorizontalAlignment="Left" Height="23" Margin="11,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Grid.Column="1"/>
+        <TextBox x:Name="ratebox" HorizontalAlignment="Left" Height="23" Margin="11,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Grid.Column="1"/>
+        <TextBox x:Name="lunabox" HorizontalAlignment="Left" Height="23" Margin="11,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14" Grid.Column="1"/>
+        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="11,13,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id" FontFamily="Calibri" FontSize="14" Grid.Column="1" Height="29"/>
+        <Button Content="Generare" HorizontalAlignment="Left" Margin="26,221,0,0" VerticalAlignment="Top" Width="105" Height="48" Click="Button_Click" Grid.Column="1" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Background="#FFDC4747"/>
+        <DatePicker x:Name="databox" Grid.Column="1" HorizontalAlignment="Left" Margin="11,177,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
 
     </Grid>
 </Window>

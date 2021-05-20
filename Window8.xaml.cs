@@ -191,7 +191,7 @@ namespace licenta
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 25;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("artur.ghidora@eurial.com.ro", "Px3h8DIOAt68S0c3");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("artur.ghidora@eurial.com.ro", "Fh%TB^9'n?Nv$}_d");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);

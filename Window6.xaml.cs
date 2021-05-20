@@ -28,42 +28,42 @@ namespace licenta
         {
             Window7 mw = new Window7();
             mw.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Window8 mw = new Window8();
             mw.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Window9 mw = new Window9();
             mw.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             Window10 mw = new Window10();
             mw.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             Window11 mw = new Window11();
             mw.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             Window12 mw = new Window12();
             mw.Show();
-            //this.Close();
+            this.Close();
         }
     }
 }

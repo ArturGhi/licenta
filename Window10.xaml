@@ -5,23 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
         mc:Ignorable="d"
-        Title="Window10" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Cerere concediu odihna neplatit" Height="255.5" Width="422.5" Loaded="Window_Loaded" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:test x:Key="test"/>
         <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource test}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource angajatViewSource}">
-        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Functia :" HorizontalAlignment="Left" Margin="30,63,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Perioada de la :" HorizontalAlignment="Left" Margin="30,94,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="Data :" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Label Content="pana la :" HorizontalAlignment="Left" Margin="183,94,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontWeight="Bold"/>
-        <Button Content="Generare" HorizontalAlignment="Left" Margin="206,178,0,0" VerticalAlignment="Top" Width="102" Height="48" Click="Button_Click"/>
-        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="152,32,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id"/>
-        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="102,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="zilelibere1box" HorizontalAlignment="Left" Height="23" Margin="137,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="zilelibere2box" HorizontalAlignment="Left" Height="23" Margin="240,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
-        <TextBox x:Name="databox" HorizontalAlignment="Left" Height="23" Margin="82,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+    <Grid DataContext="{StaticResource angajatViewSource}" Background="#FFE2E0DE">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Nume prenume :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Functia :" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Perioada de la :" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Data :" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="pana la :" HorizontalAlignment="Left" Margin="241,85,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFECA661" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Button Content="Generare" HorizontalAlignment="Left" Margin="30,163,0,0" VerticalAlignment="Top" Width="102" Height="48" Click="Button_Click" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Grid.Column="1" Background="#FFDC4747"/>
+        <ComboBox x:Name="numeprenumebox" HorizontalAlignment="Left" Margin="137,10,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="nume_angajat" ItemsSource="{Binding}" SelectedValuePath="Id" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="functiabox" HorizontalAlignment="Left" Height="23" Margin="137,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <DatePicker x:Name="databox" HorizontalAlignment="Left" Margin="137,122,0,0" VerticalAlignment="Top" Width="90" FontFamily="Calibri" FontSize="14"/>
+        <DatePicker x:Name="zilelibere1box" HorizontalAlignment="Left" Margin="137,83,0,0" VerticalAlignment="Top" Width="90" FontFamily="Calibri" FontSize="14"/>
+        <DatePicker x:Name="zilelibere2box" HorizontalAlignment="Left" Margin="42,85,0,0" VerticalAlignment="Top" Width="90" Grid.Column="1" FontFamily="Calibri" FontSize="14"/>
 
     </Grid>
 </Window>

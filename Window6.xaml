@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:licenta"
         mc:Ignorable="d"
-        Title="Window6" Height="450" Width="800">
-    <Grid>
-        <Button Content="Proces verbal interventii" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="26" Click="Button_Click"/>
-        <Button Content="Cerere concediu odihna" HorizontalAlignment="Left" Margin="181,16,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click_1"/>
-        <Button Content="Cerere plata salariu avans" HorizontalAlignment="Left" Margin="354,13,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click_2"/>
-        <Button Content="Cerere concediu odihna neplatit" HorizontalAlignment="Left" Margin="530,18,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click_3"/>
-        <Button Content="Cerere invoire" HorizontalAlignment="Left" Margin="28,72,0,0" VerticalAlignment="Top" Width="119" Click="Button_Click_4"/>
-        <Button Content="Cerere incetare contract" HorizontalAlignment="Left" Margin="181,72,0,0" VerticalAlignment="Top" Width="147" Click="Button_Click_5"/>
+        Title="Cereri" Height="181.5" Width="510.5" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Background="#FFE2DEDE">
+        <Button Content="Proces verbal&#xD;&#xA;   interventii" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="130" Height="50" Click="Button_Click" FontFamily="Calibri" FontWeight="Bold" FontSize="16"/>
+        <Button Content="Cerere concediu&#xD;&#xA;       odihna" HorizontalAlignment="Left" Margin="181,14,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_1" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Height="50" Padding="10,4"/>
+        <Button Content="Cerere plata&#xD;&#xA;salariu avans" HorizontalAlignment="Left" Margin="352,14,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_2" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Height="50"/>
+        <Button Content="Cerere concediu&#xD;&#xA; odihna neplatit" HorizontalAlignment="Left" Margin="352,79,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_3" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Height="50" Padding="10,4"/>
+        <Button Content="Cerere invoire" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_4" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Height="50"/>
+        <Button Content="Cerere incetare&#xD;&#xA;      contract" HorizontalAlignment="Left" Margin="181,79,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_5" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Height="50" Padding="13,4"/>
 
     </Grid>
 </Window>

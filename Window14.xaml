@@ -1,0 +1,25 @@
+﻿<Window x:Class="licenta.Window14"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:licenta"
+        mc:Ignorable="d"
+        Title="Sugestii/reclamatii" Height="309" Width="450.5" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" Background="#FFE2DEDE">
+    <Window.Resources>
+        <local:licentaDataSet x:Key="licentaDataSet"/>
+        <CollectionViewSource x:Key="angajatViewSource" Source="{Binding Angajat, Source={StaticResource licentaDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource angajatViewSource}">
+        <Label Content="Tip" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF1D59B4" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="   Nume&#xD;&#xA;(Optional)" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="#FF1D59B4" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Text" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Foreground="#FF1D59B4" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="23" Margin="72,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="72,13,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14">
+            <ComboBoxItem Content="Reclamatie"/>
+            <ComboBoxItem Content="Sugestie"/>
+        </ComboBox>
+        <Button Content="Trimite" HorizontalAlignment="Left" Margin="322,225,0,0" VerticalAlignment="Top" Width="100" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Padding="10,4" Click="Button_Click"/>
+        <TextBox x:Name="textbox2" HorizontalAlignment="Left" Height="128" Margin="72,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Background="#FFF3F3F3"/>
+    </Grid>
+</Window>
